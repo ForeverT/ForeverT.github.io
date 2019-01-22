@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="SpringSecurity,安全," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="SpringSecurity核心接口及实现">
+<meta name="keywords" content="SpringSecurity,安全">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringSecurity笔记">
+<meta property="og:url" content="http://yoursite.com/2017/07/20/first-blog/index.html">
+<meta property="og:site_name" content="Avalon&#39;s Blog">
+<meta property="og:description" content="SpringSecurity核心接口及实现">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-19T15:05:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringSecurity笔记">
+<meta name="twitter:description" content="SpringSecurity核心接口及实现">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/20/first-blog/"/>
+
+
+
+
+
+  <title>SpringSecurity笔记 | Avalon's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Avalon's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/20/first-blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Avalon">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Avalon's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SpringSecurity笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T15:30:16+08:00">
+                2017-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SpringSecurity/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringSecurity</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  SpringSecurity核心接口及实现
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="SpringSecurity笔记"><a href="#SpringSecurity笔记" class="headerlink" title="SpringSecurity笔记"></a>SpringSecurity笔记</h1><h2 id="SpringSecurity-核心类与接口"><a href="#SpringSecurity-核心类与接口" class="headerlink" title="SpringSecurity 核心类与接口"></a>SpringSecurity 核心类与接口</h2><h3 id="SecurityContextHolder"><a href="#SecurityContextHolder" class="headerlink" title="SecurityContextHolder"></a>SecurityContextHolder</h3><p>程序档安全环境的细节存储在它里边了,也包含了应用当前使用的主体细节,默认情况下，SecurityContextHolder使用ThreadLocal存储这些信息。</p>
+<p>我们通过下面这种方法来获取当前用户信息</p>
+<pre><code>Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+if (principal instanceof UserDetails) {
+  String username = ((UserDetails)principal).getUsername();
+} else {
+  String username = principal.toString();
+}
+</code></pre><a id="more"></a>
+<h3 id="UserDetailsService"><a href="#UserDetailsService" class="headerlink" title="UserDetailsService"></a>UserDetailsService</h3><p>接口里的唯一一个方法，接收String类型的用户名参数，返回UserDetails，通常倾向于自己编写，但也可以通过使用官方提供的实现，比如InMemoryDaoImpl，JdbcDaoImpl</p>
+<blockquote>
+<p><code>UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;</code></p>
+</blockquote>
+<h3 id="UserDetails"><a href="#UserDetails" class="headerlink" title="UserDetails"></a>UserDetails</h3><p>Spring Security的核心接口，它代表一个主体，是扩展的。通常UserDetails转换成你系统提供的类，这样你就可以直接调用业务相关的方法了（比如getEmail(), getEmployeeNumber()等等）。</p>
+<pre><code>public interface UserDetails extends Serializable {
+    Collection&lt;? extends GrantedAuthority&gt; getAuthorities();
+    String getPassword();
+    String getPassword();
+    ....
+}
+</code></pre><h2 id="核心服务"><a href="#核心服务" class="headerlink" title="核心服务"></a>核心服务</h2><p>核心接口和他们的实现</p>
+<h3 id="AuthenticationManager"><a href="#AuthenticationManager" class="headerlink" title="AuthenticationManager"></a>AuthenticationManager</h3><p>在Spring Security中的默认实现是ProviderManager 不只是处理授权请求自己，它委派了一系列配置好的AuthenticationProvider，每个按照顺序查看它是否可以执行验证。每个供应器会跑出一个异常，或者返回一个完整的 Authentication对象。</p>
+<h3 id="AuthenticationProviders"><a href="#AuthenticationProviders" class="headerlink" title="AuthenticationProviders"></a>AuthenticationProviders</h3><p>最常用的方式是验证一个授权请求读取 对应的UserDetails，并检查用户录入的密码。 这是通过DaoAuthenticationProvider实现的（见下面）， 加载的UserDetails对象 - 特别是包含的 GrantedAuthority - 会在建立Authentication 时使用，这回返回一个成功验证，保存到SecurityContext中。</p>
+<pre><code>&lt;bean id=&quot;authenticationManager&quot;
+     class=&quot;org.springframework.security.authentication.ProviderManager&quot;&gt;
+  &lt;property name=&quot;providers&quot;&gt;
+    &lt;list&gt;
+      &lt;!--每个provider能够尝试进行授权，或通过返回null跳过授权。若所有实现都返回null，ProviderManager会抛出一个 ProviderNotFoundException异常--&gt;
+      &lt;ref local=&quot;daoAuthenticationProvider&quot;/&gt;
+    &lt;/list&gt;
+  &lt;/property&gt;
+&lt;/bean&gt;
+&lt;!--最简单的AuthenticationProvider实现--&gt;
+&lt;bean id=&quot;daoAuthenticationProvider&quot;
+    class=&quot;org.springframework.security.authentication.dao.DaoAuthenticationProvider&quot;&gt;
+  &lt;property name=&quot;userDetailsService&quot; ref=&quot;inMemoryDaoImpl&quot;/&gt;
+  &lt;!-- 以下都是可选项 用于提供密码的编码和解码以及用于提高密码安全性
+  &lt;property name=&quot;saltSource&quot; ref bean=&quot;saltSource&quot;/&gt;
+  &lt;property name=&quot;passwordEncoder&quot; ref=&quot;passwordEncoder&quot;/&gt;--&gt;
+&lt;/bean&gt;
+</code></pre><h2 id="web应用安全"><a href="#web应用安全" class="headerlink" title="web应用安全"></a>web应用安全</h2><h3 id="安全过滤器链"><a href="#安全过滤器链" class="headerlink" title="安全过滤器链"></a>安全过滤器链</h3><blockquote>
+<p>Spring Security的web架构是完全基于标准的servlet过滤器。它没有在内部使用servlet或任何其他基于servlet的框架（比如spring mvc），所以它没有与任何特定的web技术强行关联。它只管处理HttpServletRequest和 HttpServletResponse，不关心请求时来自浏览器，web服务客户端，HttpInvoker还是一个AJAX应用。<br>Spring Security维护了一个过滤器链，每个过滤器拥有特定的功能，过滤器需要服务也会对应添加和删除。 过滤器的次序是非常重要的，它们之间都有依赖关系。 </p>
+</blockquote>
+<h4 id="DelegatingFilterProxy"><a href="#DelegatingFilterProxy" class="headerlink" title="DelegatingFilterProxy"></a>DelegatingFilterProxy</h4><pre><code>&lt;filter&gt;
+  &lt;filter-name&gt;myFilter&lt;/filter-name&gt;
+  &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+  &lt;filter-name&gt;myFilter&lt;/filter-name&gt;
+  &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p>这个过滤器里没有实现过滤器的任何逻辑。<br>DelegatingFilterProxy类继承了GenericFilterBean，间接地实现了javax.servlet.Filter接口，Servlet容器在启动时，首先会调用Filter的init方法，GenericFilterBean的作用主要是可以把Filter的初始化参数自动地set到继承与GenericFilterBean类的Filter中区。其源码如下：</p>
+<pre><code>public final void init(FilterConfig filterConfig) throws ServletException {
+    Assert.notNull(filterConfig, &quot;FilterConfig must not be null&quot;);
+    if (logger.isDebugEnabled()) {
+        logger.debug(&quot;Initializing filter &apos;&quot; + filterConfig.getFilterName() + &quot;&apos;&quot;);
+    }
+
+    this.filterConfig = filterConfig;
+
+    // Set bean properties from init parameters.
+    try {
+        PropertyValues pvs = new FilterConfigPropertyValues(filterConfig, this.requiredProperties);
+        BeanWrapper bw = PropertyAccessorFactory.forBeanPropertyAccess(this);
+        ResourceLoader resourceLoader = new ServletContextResourceLoader(filterConfig.getServletContext());
+        bw.registerCustomEditor(Resource.class, new ResourceEditor(resourceLoader, this.environment));
+        initBeanWrapper(bw);
+        bw.setPropertyValues(pvs, true);
+    }
+    catch (BeansException ex) {
+        String msg = &quot;Failed to set bean properties on filter &apos;&quot; +
+            filterConfig.getFilterName() + &quot;&apos;: &quot; + ex.getMessage();
+        logger.error(msg, ex);
+        throw new NestedServletException(msg, ex);
+    }
+
+    // Let subclasses do whatever initialization they like.
+    **initFilterBean();**
+
+    if (logger.isDebugEnabled()) {
+        logger.debug(&quot;Filter &apos;&quot; + filterConfig.getFilterName() + &quot;&apos; configured successfully&quot;);
+    }
+}
+</code></pre><p>在该方法中调用了initFilterBean()方法，该方法是GenericFilterBean类特地留给子类扩展使用的。其实现在DelegatingFilterProxy中</p>
+<pre><code>protected void initFilterBean() throws ServletException {
+    synchronized (this.delegateMonitor) {
+        if (this.delegate == null) {
+            // 如果代理beanname不存在 则使用filter的名称
+            if (this.targetBeanName == null) {
+                this.targetBeanName = getFilterName();
+            }
+            // Fetch Spring root application context and initialize the delegate early,
+            // if possible. If the root application context will be started after this
+            // filter proxy, we&apos;ll have to resort to lazy initialization.
+            WebApplicationContext wac = findWebApplicationContext();
+            if (wac != null) {
+                this.delegate = initDelegate(wac);
+            }
+        }
+    }
+}
+</code></pre><h4 id="FilterChainProxy"><a href="#FilterChainProxy" class="headerlink" title="FilterChainProxy"></a>FilterChainProxy</h4><pre><code>&lt;bean id=&quot;filterChainProxy&quot; class=&quot;org.springframework.security.web.FilterChainProxy&quot;&gt;
+  &lt;sec:filter-chain-map path-type=&quot;ant&quot;&gt;
+     &lt;sec:filter-chain pattern=&quot;/webServices/**&quot; filters=&quot;
+           securityContextPersistenceFilterWithASCFalse,
+           basicAuthenticationFilter,
+           exceptionTranslationFilter,
+           filterSecurityInterceptor&quot; /&gt;
+     &lt;sec:filter-chain pattern=&quot;/**&quot; filters=&quot;
+           securityContextPersistenceFilterWithASCFalse,
+           formLoginFilter,
+           exceptionTranslationFilter,
+           filterSecurityInterceptor&quot; /&gt;
+  &lt;/sec:filter-chain-map&gt;
+&lt;/bean&gt;
+</code></pre><h4 id="FilterSecurityInterceptor"><a href="#FilterSecurityInterceptor" class="headerlink" title="FilterSecurityInterceptor"></a>FilterSecurityInterceptor</h4>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SpringSecurity/" rel="tag"># SpringSecurity</a>
+          
+            <a href="/tags/安全/" rel="tag"># 安全</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/01/jvm/" rel="prev" title="JVM类加载机制">
+                JVM类加载机制 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Avalon" />
+          <p class="site-author-name" itemprop="name">Avalon</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SpringSecurity笔记"><span class="nav-number">1.</span> <span class="nav-text">SpringSecurity笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringSecurity-核心类与接口"><span class="nav-number">1.1.</span> <span class="nav-text">SpringSecurity 核心类与接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SecurityContextHolder"><span class="nav-number">1.1.1.</span> <span class="nav-text">SecurityContextHolder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UserDetailsService"><span class="nav-number">1.1.2.</span> <span class="nav-text">UserDetailsService</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UserDetails"><span class="nav-number">1.1.3.</span> <span class="nav-text">UserDetails</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心服务"><span class="nav-number">1.2.</span> <span class="nav-text">核心服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AuthenticationManager"><span class="nav-number">1.2.1.</span> <span class="nav-text">AuthenticationManager</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AuthenticationProviders"><span class="nav-number">1.2.2.</span> <span class="nav-text">AuthenticationProviders</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#web应用安全"><span class="nav-number">1.3.</span> <span class="nav-text">web应用安全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安全过滤器链"><span class="nav-number">1.3.1.</span> <span class="nav-text">安全过滤器链</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DelegatingFilterProxy"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">DelegatingFilterProxy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FilterChainProxy"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">FilterChainProxy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#FilterSecurityInterceptor"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">FilterSecurityInterceptor</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Avalon</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
