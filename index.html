@@ -112,12 +112,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Avalon&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Avalon&#39;s Blog">
+<meta property="og:title" content="Panda_9527&#39;s Blog">
+<meta property="og:url" content="https://forevert.github.io/index.html">
+<meta property="og:site_name" content="Panda_9527&#39;s Blog">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Avalon&#39;s Blog">
+<meta name="twitter:title" content="Panda_9527&#39;s Blog">
 
 
 
@@ -145,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="https://forevert.github.io/"/>
 
 
 
 
 
-  <title>Avalon's Blog</title>
+  <title>Panda_9527's Blog</title>
   
 
 
@@ -189,7 +189,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Avalon's Blog</span>
+        <span class="site-title">Panda_9527's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -272,16 +272,259 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/01/Java锁简介/">
+    <link itemprop="mainEntityOfPage" href="https://forevert.github.io/2019/05/24/Java-缓存介绍-Caffeine-EhCache/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Avalon">
+      <meta itemprop="name" content="Panda_9527">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Avalon's Blog">
+      <meta itemprop="name" content="Panda_9527's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/24/Java-缓存介绍-Caffeine-EhCache/" itemprop="url">Java 缓存介绍(Caffeine,EhCache)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T14:43:23+08:00">
+                2019-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>​    在平时工作中，如果要在应用中缓存数据，一般简单的实现是使用Java自带的Map来缓存数据。但是Map只能提供简单的数据存储，它不提供诸如缓存失效，缓存清除，异步加载等等的高级操作，所以如果你想构建高效及多功能的缓存，可以使用下面介绍的2个缓存组件。</p>
+</blockquote>
+<h3 id="Caffeine"><a href="#Caffeine" class="headerlink" title="Caffeine"></a>Caffeine</h3><blockquote>
+<p>一个高性能的缓存库，Caffeine 使用 <strong>Window TinyLfu</strong> 回收策略，可以提供了一个<strong>近乎最佳的命中率</strong>。</p>
+</blockquote>
+<h5 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h5><p>maven</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;com.github.ben-manes.caffeine&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;caffeine&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;2.5.5&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
+<p>Grade</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.github.ben-manes.caffeine:caffeine:2.5.5&apos;</div></pre></td></tr></table></figure>
+<h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">baseTest</span><span class="params">()</span> </span>&#123;</div><div class="line">      Cache&lt;String, Data&gt; cache = Caffeine.newBuilder()</div><div class="line">          <span class="comment">// 设置过期时间</span></div><div class="line">          .expireAfterWrite(<span class="number">1</span>, TimeUnit.MINUTES)</div><div class="line">          <span class="comment">// 缓存数量</span></div><div class="line">          .maximumSize(<span class="number">100</span>).build();</div><div class="line"></div><div class="line">      <span class="comment">// 往缓存中设置 </span></div><div class="line">      cache.put(<span class="string">"A"</span>, <span class="keyword">new</span> Data(<span class="string">"A"</span>));</div><div class="line">      Assert.assertEquals(cache.getIfPresent(<span class="string">"A"</span>).getData(), <span class="string">"A"</span>);</div><div class="line"></div><div class="line">      <span class="comment">// 取值 若存在返回 不存在返回null</span></div><div class="line">      Data b = cache.getIfPresent(<span class="string">"B"</span>);</div><div class="line">      Assert.assertNull(b);</div><div class="line"></div><div class="line">      <span class="comment">// 取值 若不存在 则按后面计算并返回</span></div><div class="line">      b = cache.get(<span class="string">"B"</span>, k -&gt; <span class="keyword">new</span> Data(k));</div><div class="line"></div><div class="line">      Assert.assertEquals(cache.getIfPresent(<span class="string">"B"</span>).getData(), <span class="string">"B"</span>);</div><div class="line"></div><div class="line">      <span class="comment">// 手动移除key</span></div><div class="line">      cache.invalidate(<span class="string">"A"</span>);</div><div class="line"></div><div class="line">      Assert.assertNull(cache.getIfPresent(<span class="string">"A"</span>));</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h4 id="同步加载"><a href="#同步加载" class="headerlink" title="同步加载"></a>同步加载</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">syncLoadTest</span><span class="params">()</span> </span>&#123;</div><div class="line">      LoadingCache&lt;String, Data&gt; cache = Caffeine.newBuilder()</div><div class="line">              .maximumSize(<span class="number">100</span>)</div><div class="line">              .expireAfterWrite(<span class="number">1</span>, TimeUnit.MINUTES)</div><div class="line">              .build(k -&gt; <span class="keyword">new</span> Data(k));</div><div class="line"></div><div class="line">      <span class="comment">//这个获取的仍然为空</span></div><div class="line">      Assert.assertNull(cache.getIfPresent(<span class="string">"A"</span>));</div><div class="line"></div><div class="line">      <span class="comment">// get() 检索值 此处会根据初始化时指定的方法初始化value</span></div><div class="line">      Data a = cache.get(<span class="string">"a"</span>);</div><div class="line">      Assert.assertNotNull(a);</div><div class="line">      Assert.assertEquals(a.getData(),<span class="string">"a"</span>);</div><div class="line"></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<h4 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">asyncLoadTest</span><span class="params">()</span> </span>&#123;</div><div class="line">      AsyncLoadingCache&lt;String, Data&gt; cache = Caffeine.newBuilder().maximumSize(<span class="number">100</span>).expireAfterWrite(<span class="number">1</span>, TimeUnit.MINUTES).buildAsync(k -&gt; <span class="keyword">new</span> Data(k));</div><div class="line">      cache.get(<span class="string">"A"</span>).thenAccept(data -&gt; &#123;</div><div class="line">          Assert.assertNotNull(data);</div><div class="line">          Assert.assertEquals(data.getData(), <span class="string">"a"</span>);</div><div class="line">      &#125;);</div><div class="line"></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>这3种加载方式使用的Cache类不同，可以根据自己的需求来选择合适的方式来加载数据</p>
+<h4 id="回收策略"><a href="#回收策略" class="headerlink" title="回收策略"></a>回收策略</h4><ol>
+<li><p>基于maximumSize()设置的大小，若果超过最大值后将异步回收</p>
+</li>
+<li><p>基于权重大小删除元素</p>
+<ol>
+<li>.maximumWeight():指定缓存的最大容量，当缓存超出这个容量的时候，会使用<a href="https://github.com/ben-manes/caffeine/wiki/Efficiency" target="_blank" rel="external">Window TinyLfu策略</a>来删除缓存</li>
+<li>.weighter((k,v)-&gt;{}):计算权重方法</li>
+<li>maximumWeight与maximumSize不可以同时使用。</li>
+</ol>
+</li>
+<li><p>基于时间回收</p>
+<ol>
+<li>访问后到期 — 从上次读或写发生后，条目即过期</li>
+<li>写入后到期 — 从上次写入发生之后，条目即过期</li>
+<li>自定义策略 — 到期时间由 Expiry 实现独自计算</li>
+</ol>
+</li>
+<li><p>基于引用</p>
+<p>我们可以将缓存的驱逐配置成基于垃圾回收器。为此，我们可以将key 和 value 配置为弱引用或只将值配置成软引用。</p>
+<ul>
+<li>Caffeine.weakKeys():使用弱引用存储key。如果没有其他地方对该key有强引用，那么该缓存就会被垃圾回收器回收。</li>
+<li>Caffeine.weakValues():使用弱引用存储value。</li>
+<li>Caffeine.softValues():使用软引用存储value。当内存满了过后，软引用的对象以将使用最近最少使用(least-recently-used ) 的方式进行垃圾回收。</li>
+</ul>
+</li>
+</ol>
+<h3 id="Ehcache"><a href="#Ehcache" class="headerlink" title="Ehcache"></a>Ehcache</h3><blockquote>
+<p>​    Ehcache 从 Hibernate 发展而来，逐渐涵盖了 Cahce 界的全部功能,是目前发展势头最好的一个项目。具有快速,简单,低消耗，依赖性小，扩展性强,支持对象或序列化缓存，支持缓存或元素的失效，提供 LRU、LFU 和 FIFO 缓存策略，支持内存缓存和磁盘缓存，分布式缓存机制等等特点。</p>
+</blockquote>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><ul>
+<li>支持内存及磁盘存储</li>
+<li>多种缓存策略</li>
+<li>支持多缓存管理器实例，以及一个实例的多个缓存区域</li>
+</ul>
+<h4 id="缓存淘汰策略"><a href="#缓存淘汰策略" class="headerlink" title="缓存淘汰策略"></a>缓存淘汰策略</h4><ul>
+<li>FIFO：先进先出</li>
+<li>LFU：最少被使用，缓存的元素有一个hit属性，hit值最小的将会被清出缓存</li>
+<li>LRU：最近最少使用，缓存的元素有一个时间戳，当缓存容量满了，而又需要腾出地方来缓存新的元素的时候，那么现有缓存元素中时间戳离当前时间最远的元素将被清出缓存</li>
+</ul>
+<h4 id="依赖-1"><a href="#依赖-1" class="headerlink" title="依赖"></a>依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">maven </div><div class="line">&lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.ehcache&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;ehcache&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;3.7.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">gradle</div><div class="line">compile &apos;org.ehcache:ehchache:3.7.0&apos;</div></pre></td></tr></table></figure>
+<h4 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public class EhCache implements LocalCache&lt;String, Data&gt; &#123;</div><div class="line"></div><div class="line">    private CacheManager        cacheManager;</div><div class="line"></div><div class="line">    private Cache&lt;String, Data&gt; cache;</div><div class="line"></div><div class="line">    public EhCache() &#123;</div><div class="line">        // 创建缓存管理器 一个缓存管理器可以关联多个缓存</div><div class="line">        cacheManager = CacheManagerBuilder.newCacheManagerBuilder().build();</div><div class="line">        // 初始化</div><div class="line">        cacheManager.init();</div><div class="line">        // 创建 dataCache缓存</div><div class="line">        CacheConfigurationBuilder builder = CacheConfigurationBuilder.newCacheConfigurationBuilder(String.class, Data.class, ResourcePoolsBuilder.heap(100));</div><div class="line">        cache = cacheManager.createCache(&quot;dataCache&quot;, builder);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public Data get(String K) &#123;</div><div class="line">        return cache.get(K);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void set(String K, Data data) &#123;</div><div class="line">        cache.put(K, data);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2种缓存框架对比"><a href="#2种缓存框架对比" class="headerlink" title="2种缓存框架对比"></a>2种缓存框架对比</h3><h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>​    从支持的功能上来看，ehcache支持的功能特性更多一些，比如多级缓存，分布式缓存，缓存监听器等等。但如果只是想简单的使用一个内存缓存组件，并且对性能有较高的要求时，可以优先考虑Caffeine，它的性能比ehcache更好，并且它使用了更加优秀的缓存淘汰策略，提供接近理想的命中率，在Spring5中已经作为基础的缓存组件使用了。</p>
+<h4 id="易用性"><a href="#易用性" class="headerlink" title="易用性"></a>易用性</h4><p>​    从我简单使用上来看，Caffeine提供的api更友好一些，而且ehcache似乎没有提供异步加载特性。配置也略微烦琐了些。</p>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><h5 id="1-读多写少场景"><a href="#1-读多写少场景" class="headerlink" title="1 读多写少场景"></a>1 读多写少场景</h5><blockquote>
+<p>测试条件</p>
+<p>1.缓存1000个数据</p>
+<p>2.8个线程读 2个线程写</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Caffeine(读/写)</th>
+<th>Ehcache(读/写)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1558360022/184773156</td>
+<td>1794188434/155912462</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1861119523/288443676</td>
+<td>1818122432/147250831</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1421957913/277856668</td>
+<td>1348268819/142143289</td>
+</tr>
+<tr>
+<td>平均</td>
+<td>1613812486/250357833</td>
+<td>1653526561/148435527</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2-只读场景"><a href="#2-只读场景" class="headerlink" title="2 只读场景"></a>2 只读场景</h5><blockquote>
+<p>测试条件</p>
+<p>1.缓存1000个数据</p>
+<p>2.10个线程读</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Caffeine(读)</th>
+<th>Ehcache(读)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1723628225</td>
+<td>2129962082</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1899030885</td>
+<td>2025097805</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2124612664</td>
+<td>2086497546</td>
+</tr>
+<tr>
+<td>平均</td>
+<td>1915757258</td>
+<td>2080519144</td>
+</tr>
+</tbody>
+</table>
+<p>只读场景下Caffeine性能比Ehcache略微差一些。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>​    在读性能上两者差距不大，但在写性能上Caffeine明显比Ehcache要高出不少。综合易用性，性能来看，我认为一般项目使用Caffeine就足够了。</p>
+<p>##### </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://forevert.github.io/2018/08/01/Java锁简介/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Panda_9527">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Panda_9527's Blog">
     </span>
 
     
@@ -410,16 +653,16 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/05/动态代理/">
+    <link itemprop="mainEntityOfPage" href="https://forevert.github.io/2017/08/05/动态代理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Avalon">
+      <meta itemprop="name" content="Panda_9527">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Avalon's Blog">
+      <meta itemprop="name" content="Panda_9527's Blog">
     </span>
 
     
@@ -548,16 +791,16 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/01/lru/">
+    <link itemprop="mainEntityOfPage" href="https://forevert.github.io/2017/08/01/lru/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Avalon">
+      <meta itemprop="name" content="Panda_9527">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Avalon's Blog">
+      <meta itemprop="name" content="Panda_9527's Blog">
     </span>
 
     
@@ -686,16 +929,16 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/01/jvm/">
+    <link itemprop="mainEntityOfPage" href="https://forevert.github.io/2017/08/01/jvm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Avalon">
+      <meta itemprop="name" content="Panda_9527">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Avalon's Blog">
+      <meta itemprop="name" content="Panda_9527's Blog">
     </span>
 
     
@@ -824,16 +1067,16 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/20/first-blog/">
+    <link itemprop="mainEntityOfPage" href="https://forevert.github.io/2017/07/20/first-blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Avalon">
+      <meta itemprop="name" content="Panda_9527">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Avalon's Blog">
+      <meta itemprop="name" content="Panda_9527's Blog">
     </span>
 
     
@@ -988,8 +1231,8 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
-               alt="Avalon" />
-          <p class="site-author-name" itemprop="name">Avalon</p>
+               alt="Panda_9527" />
+          <p class="site-author-name" itemprop="name">Panda_9527</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
           
@@ -999,7 +1242,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1067,7 +1310,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Avalon</span>
+  <span class="author" itemprop="copyrightHolder">Panda_9527</span>
 </div>
 
 
