@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -90,21 +90,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Java,Cache," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Java,Cache,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -115,7 +115,7 @@
 <meta name="keywords" content="Java,Cache">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 缓存介绍(Caffeine,EhCache)">
-<meta property="og:url" content="https://forevert.github.io/2019/05/24/Java-缓存介绍-Caffeine-EhCache/index.html">
+<meta property="og:url" content="https://ipanda9527.github.io/2019/05/24/Java-缓存介绍-Caffeine-EhCache/index.html">
 <meta property="og:site_name" content="Panda_9527&#39;s Blog">
 <meta property="og:description" content="在平时工作中，如果要在应用中缓存数据，一般简单的实现是使用Java自带的Map来缓存数据。但是Map只能提供简单的数据存储，它不提供诸如缓存失效，缓存清除，异步加载等等的高级操作，所以如果你想构建高效及多功能的缓存，可以使用下面介绍的2个缓存组件。">
 <meta property="og:locale" content="zh-Hans">
@@ -150,7 +150,7 @@
 
 
 
-  <link rel="canonical" href="https://forevert.github.io/2019/05/24/Java-缓存介绍-Caffeine-EhCache/"/>
+  <link rel="canonical" href="https://ipanda9527.github.io/2019/05/24/Java-缓存介绍-Caffeine-EhCache/">
 
 
 
@@ -190,7 +190,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Panda_9527's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -220,7 +220,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -230,7 +230,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -240,7 +240,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -275,11 +275,11 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://forevert.github.io/2019/05/24/Java-缓存介绍-Caffeine-EhCache/">
+    <link itemprop="mainEntityOfPage" href="https://ipanda9527.github.io/2019/05/24/Java-缓存介绍-Caffeine-EhCache/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Panda_9527">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -347,19 +347,19 @@
 <p>一个高性能的缓存库，Caffeine 使用 <strong>Window TinyLfu</strong> 回收策略，可以提供了一个<strong>近乎最佳的命中率</strong>。</p>
 </blockquote>
 <h5 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h5><p>maven</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;dependency&gt;</div><div class="line">    &lt;groupId&gt;com.github.ben-manes.caffeine&lt;/groupId&gt;</div><div class="line">    &lt;artifactId&gt;caffeine&lt;/artifactId&gt;</div><div class="line">    &lt;version&gt;2.5.5&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;com.github.ben-manes.caffeine&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;caffeine&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;2.5.5&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 <p>Grade</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;com.github.ben-manes.caffeine:caffeine:2.5.5&apos;</div></pre></td></tr></table></figure>
-<h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">baseTest</span><span class="params">()</span> </span>&#123;</div><div class="line">      Cache&lt;String, Data&gt; cache = Caffeine.newBuilder()</div><div class="line">          <span class="comment">// 设置过期时间</span></div><div class="line">          .expireAfterWrite(<span class="number">1</span>, TimeUnit.MINUTES)</div><div class="line">          <span class="comment">// 缓存数量</span></div><div class="line">          .maximumSize(<span class="number">100</span>).build();</div><div class="line"></div><div class="line">      <span class="comment">// 往缓存中设置 </span></div><div class="line">      cache.put(<span class="string">"A"</span>, <span class="keyword">new</span> Data(<span class="string">"A"</span>));</div><div class="line">      Assert.assertEquals(cache.getIfPresent(<span class="string">"A"</span>).getData(), <span class="string">"A"</span>);</div><div class="line"></div><div class="line">      <span class="comment">// 取值 若存在返回 不存在返回null</span></div><div class="line">      Data b = cache.getIfPresent(<span class="string">"B"</span>);</div><div class="line">      Assert.assertNull(b);</div><div class="line"></div><div class="line">      <span class="comment">// 取值 若不存在 则按后面计算并返回</span></div><div class="line">      b = cache.get(<span class="string">"B"</span>, k -&gt; <span class="keyword">new</span> Data(k));</div><div class="line"></div><div class="line">      Assert.assertEquals(cache.getIfPresent(<span class="string">"B"</span>).getData(), <span class="string">"B"</span>);</div><div class="line"></div><div class="line">      <span class="comment">// 手动移除key</span></div><div class="line">      cache.invalidate(<span class="string">"A"</span>);</div><div class="line"></div><div class="line">      Assert.assertNull(cache.getIfPresent(<span class="string">"A"</span>));</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<h4 id="同步加载"><a href="#同步加载" class="headerlink" title="同步加载"></a>同步加载</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">syncLoadTest</span><span class="params">()</span> </span>&#123;</div><div class="line">      LoadingCache&lt;String, Data&gt; cache = Caffeine.newBuilder()</div><div class="line">              .maximumSize(<span class="number">100</span>)</div><div class="line">              .expireAfterWrite(<span class="number">1</span>, TimeUnit.MINUTES)</div><div class="line">              .build(k -&gt; <span class="keyword">new</span> Data(k));</div><div class="line"></div><div class="line">      <span class="comment">//这个获取的仍然为空</span></div><div class="line">      Assert.assertNull(cache.getIfPresent(<span class="string">"A"</span>));</div><div class="line"></div><div class="line">      <span class="comment">// get() 检索值 此处会根据初始化时指定的方法初始化value</span></div><div class="line">      Data a = cache.get(<span class="string">"a"</span>);</div><div class="line">      Assert.assertNotNull(a);</div><div class="line">      Assert.assertEquals(a.getData(),<span class="string">"a"</span>);</div><div class="line"></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<h4 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">asyncLoadTest</span><span class="params">()</span> </span>&#123;</div><div class="line">      AsyncLoadingCache&lt;String, Data&gt; cache = Caffeine.newBuilder().maximumSize(<span class="number">100</span>).expireAfterWrite(<span class="number">1</span>, TimeUnit.MINUTES).buildAsync(k -&gt; <span class="keyword">new</span> Data(k));</div><div class="line">      cache.get(<span class="string">"A"</span>).thenAccept(data -&gt; &#123;</div><div class="line">          Assert.assertNotNull(data);</div><div class="line">          Assert.assertEquals(data.getData(), <span class="string">"a"</span>);</div><div class="line">      &#125;);</div><div class="line"></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile &apos;com.github.ben-manes.caffeine:caffeine:2.5.5&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">baseTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      Cache&lt;String, Data&gt; cache = Caffeine.newBuilder()</span><br><span class="line">          <span class="comment">// 设置过期时间</span></span><br><span class="line">          .expireAfterWrite(<span class="number">1</span>, TimeUnit.MINUTES)</span><br><span class="line">          <span class="comment">// 缓存数量</span></span><br><span class="line">          .maximumSize(<span class="number">100</span>).build();</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 往缓存中设置 </span></span><br><span class="line">      cache.put(<span class="string">"A"</span>, <span class="keyword">new</span> Data(<span class="string">"A"</span>));</span><br><span class="line">      Assert.assertEquals(cache.getIfPresent(<span class="string">"A"</span>).getData(), <span class="string">"A"</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 取值 若存在返回 不存在返回null</span></span><br><span class="line">      Data b = cache.getIfPresent(<span class="string">"B"</span>);</span><br><span class="line">      Assert.assertNull(b);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 取值 若不存在 则按后面计算并返回</span></span><br><span class="line">      b = cache.get(<span class="string">"B"</span>, k -&gt; <span class="keyword">new</span> Data(k));</span><br><span class="line"></span><br><span class="line">      Assert.assertEquals(cache.getIfPresent(<span class="string">"B"</span>).getData(), <span class="string">"B"</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 手动移除key</span></span><br><span class="line">      cache.invalidate(<span class="string">"A"</span>);</span><br><span class="line"></span><br><span class="line">      Assert.assertNull(cache.getIfPresent(<span class="string">"A"</span>));</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="同步加载"><a href="#同步加载" class="headerlink" title="同步加载"></a>同步加载</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">syncLoadTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      LoadingCache&lt;String, Data&gt; cache = Caffeine.newBuilder()</span><br><span class="line">              .maximumSize(<span class="number">100</span>)</span><br><span class="line">              .expireAfterWrite(<span class="number">1</span>, TimeUnit.MINUTES)</span><br><span class="line">              .build(k -&gt; <span class="keyword">new</span> Data(k));</span><br><span class="line"></span><br><span class="line">      <span class="comment">//这个获取的仍然为空</span></span><br><span class="line">      Assert.assertNull(cache.getIfPresent(<span class="string">"A"</span>));</span><br><span class="line"></span><br><span class="line">      <span class="comment">// get() 检索值 此处会根据初始化时指定的方法初始化value</span></span><br><span class="line">      Data a = cache.get(<span class="string">"a"</span>);</span><br><span class="line">      Assert.assertNotNull(a);</span><br><span class="line">      Assert.assertEquals(a.getData(),<span class="string">"a"</span>);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="异步加载"><a href="#异步加载" class="headerlink" title="异步加载"></a>异步加载</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">asyncLoadTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      AsyncLoadingCache&lt;String, Data&gt; cache = Caffeine.newBuilder().maximumSize(<span class="number">100</span>).expireAfterWrite(<span class="number">1</span>, TimeUnit.MINUTES).buildAsync(k -&gt; <span class="keyword">new</span> Data(k));</span><br><span class="line">      cache.get(<span class="string">"A"</span>).thenAccept(data -&gt; &#123;</span><br><span class="line">          Assert.assertNotNull(data);</span><br><span class="line">          Assert.assertEquals(data.getData(), <span class="string">"a"</span>);</span><br><span class="line">      &#125;);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>这3种加载方式使用的Cache类不同，可以根据自己的需求来选择合适的方式来加载数据</p>
 <h4 id="回收策略"><a href="#回收策略" class="headerlink" title="回收策略"></a>回收策略</h4><ol>
 <li><p>基于maximumSize()设置的大小，若果超过最大值后将异步回收</p>
 </li>
 <li><p>基于权重大小删除元素</p>
 <ol>
-<li>.maximumWeight():指定缓存的最大容量，当缓存超出这个容量的时候，会使用<a href="https://github.com/ben-manes/caffeine/wiki/Efficiency" target="_blank" rel="external">Window TinyLfu策略</a>来删除缓存</li>
+<li>.maximumWeight():指定缓存的最大容量，当缓存超出这个容量的时候，会使用<a href="https://github.com/ben-manes/caffeine/wiki/Efficiency" target="_blank" rel="noopener">Window TinyLfu策略</a>来删除缓存</li>
 <li>.weighter((k,v)-&gt;{}):计算权重方法</li>
 <li>maximumWeight与maximumSize不可以同时使用。</li>
 </ol>
@@ -393,8 +393,8 @@
 <li>LFU：最少被使用，缓存的元素有一个hit属性，hit值最小的将会被清出缓存</li>
 <li>LRU：最近最少使用，缓存的元素有一个时间戳，当缓存容量满了，而又需要腾出地方来缓存新的元素的时候，那么现有缓存元素中时间戳离当前时间最远的元素将被清出缓存</li>
 </ul>
-<h4 id="依赖-1"><a href="#依赖-1" class="headerlink" title="依赖"></a>依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">maven </div><div class="line">&lt;dependency&gt;</div><div class="line">      &lt;groupId&gt;org.ehcache&lt;/groupId&gt;</div><div class="line">      &lt;artifactId&gt;ehcache&lt;/artifactId&gt;</div><div class="line">      &lt;version&gt;3.7.0&lt;/version&gt;</div><div class="line">&lt;/dependency&gt;</div><div class="line"></div><div class="line">gradle</div><div class="line">compile &apos;org.ehcache:ehchache:3.7.0&apos;</div></pre></td></tr></table></figure>
-<h4 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public class EhCache implements LocalCache&lt;String, Data&gt; &#123;</div><div class="line"></div><div class="line">    private CacheManager        cacheManager;</div><div class="line"></div><div class="line">    private Cache&lt;String, Data&gt; cache;</div><div class="line"></div><div class="line">    public EhCache() &#123;</div><div class="line">        // 创建缓存管理器 一个缓存管理器可以关联多个缓存</div><div class="line">        cacheManager = CacheManagerBuilder.newCacheManagerBuilder().build();</div><div class="line">        // 初始化</div><div class="line">        cacheManager.init();</div><div class="line">        // 创建 dataCache缓存</div><div class="line">        CacheConfigurationBuilder builder = CacheConfigurationBuilder.newCacheConfigurationBuilder(String.class, Data.class, ResourcePoolsBuilder.heap(100));</div><div class="line">        cache = cacheManager.createCache(&quot;dataCache&quot;, builder);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public Data get(String K) &#123;</div><div class="line">        return cache.get(K);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void set(String K, Data data) &#123;</div><div class="line">        cache.put(K, data);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="依赖-1"><a href="#依赖-1" class="headerlink" title="依赖"></a>依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">maven </span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.ehcache&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;ehcache&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.7.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">gradle</span><br><span class="line">compile &apos;org.ehcache:ehchache:3.7.0&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class EhCache implements LocalCache&lt;String, Data&gt; &#123;</span><br><span class="line"></span><br><span class="line">    private CacheManager        cacheManager;</span><br><span class="line"></span><br><span class="line">    private Cache&lt;String, Data&gt; cache;</span><br><span class="line"></span><br><span class="line">    public EhCache() &#123;</span><br><span class="line">        // 创建缓存管理器 一个缓存管理器可以关联多个缓存</span><br><span class="line">        cacheManager = CacheManagerBuilder.newCacheManagerBuilder().build();</span><br><span class="line">        // 初始化</span><br><span class="line">        cacheManager.init();</span><br><span class="line">        // 创建 dataCache缓存</span><br><span class="line">        CacheConfigurationBuilder builder = CacheConfigurationBuilder.newCacheConfigurationBuilder(String.class, Data.class, ResourcePoolsBuilder.heap(100));</span><br><span class="line">        cache = cacheManager.createCache(&quot;dataCache&quot;, builder);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Data get(String K) &#123;</span><br><span class="line">        return cache.get(K);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void set(String K, Data data) &#123;</span><br><span class="line">        cache.put(K, data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="2种缓存框架对比"><a href="#2种缓存框架对比" class="headerlink" title="2种缓存框架对比"></a>2种缓存框架对比</h3><h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>​    从支持的功能上来看，ehcache支持的功能特性更多一些，比如多级缓存，分布式缓存，缓存监听器等等。但如果只是想简单的使用一个内存缓存组件，并且对性能有较高的要求时，可以优先考虑Caffeine，它的性能比ehcache更好，并且它使用了更加优秀的缓存淘汰策略，提供接近理想的命中率，在Spring5中已经作为基础的缓存组件使用了。</p>
 <h4 id="易用性"><a href="#易用性" class="headerlink" title="易用性"></a>易用性</h4><p>​    从我简单使用上来看，Caffeine提供的api更友好一些，而且ehcache似乎没有提供异步加载特性。配置也略微烦琐了些。</p>
 <h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><h5 id="1-读多写少场景"><a href="#1-读多写少场景" class="headerlink" title="1 读多写少场景"></a>1 读多写少场景</h5><blockquote>
@@ -526,6 +526,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/05/28/Jcmd-介绍/" rel="prev" title="Jcmd 介绍">
+                Jcmd 介绍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -573,7 +577,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -584,9 +588,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="Panda_9527" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Panda_9527">
           <p class="site-author-name" itemprop="name">Panda_9527</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
@@ -597,7 +599,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -619,7 +621,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -654,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Caffeine"><span class="nav-number">1.</span> <span class="nav-text">Caffeine</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#依赖"><span class="nav-number">1.0.1.</span> <span class="nav-text">依赖</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本用法"><span class="nav-number">1.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同步加载"><span class="nav-number">1.2.</span> <span class="nav-text">同步加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步加载"><span class="nav-number">1.3.</span> <span class="nav-text">异步加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回收策略"><span class="nav-number">1.4.</span> <span class="nav-text">回收策略</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ehcache"><span class="nav-number">2.</span> <span class="nav-text">Ehcache</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#功能"><span class="nav-number">2.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存淘汰策略"><span class="nav-number">2.2.</span> <span class="nav-text">缓存淘汰策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖-1"><span class="nav-number">2.3.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本用法-1"><span class="nav-number">2.4.</span> <span class="nav-text">基本用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2种缓存框架对比"><span class="nav-number">3.</span> <span class="nav-text">2种缓存框架对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">4.</span> <span class="nav-text">特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#易用性"><span class="nav-number">4.1.</span> <span class="nav-text">易用性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能"><span class="nav-number">5.</span> <span class="nav-text">性能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-读多写少场景"><span class="nav-number">5.0.1.</span> <span class="nav-text">1 读多写少场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-只读场景"><span class="nav-number">5.0.2.</span> <span class="nav-text">2 只读场景</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">5.1.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Caffeine"><span class="nav-number">1.</span> <span class="nav-text">Caffeine</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#依赖"><span class="nav-number">1.0.1.</span> <span class="nav-text">依赖</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本用法"><span class="nav-number">1.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同步加载"><span class="nav-number">1.2.</span> <span class="nav-text">同步加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步加载"><span class="nav-number">1.3.</span> <span class="nav-text">异步加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回收策略"><span class="nav-number">1.4.</span> <span class="nav-text">回收策略</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#Ehcache"><span class="nav-number">2.</span> <span class="nav-text">Ehcache</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#功能"><span class="nav-number">2.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存淘汰策略"><span class="nav-number">2.2.</span> <span class="nav-text">缓存淘汰策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#依赖-1"><span class="nav-number">2.3.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本用法-1"><span class="nav-number">2.4.</span> <span class="nav-text">基本用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2种缓存框架对比"><span class="nav-number">3.</span> <span class="nav-text">2种缓存框架对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">4.</span> <span class="nav-text">特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#易用性"><span class="nav-number">4.1.</span> <span class="nav-text">易用性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能"><span class="nav-number">5.</span> <span class="nav-text">性能</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-读多写少场景"><span class="nav-number">5.0.1.</span> <span class="nav-text">1 读多写少场景</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-只读场景"><span class="nav-number">5.0.2.</span> <span class="nav-text">2 只读场景</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">5.1.</span> <span class="nav-text">总结</span></a></li></div>
             
 
           </div>
@@ -674,10 +676,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

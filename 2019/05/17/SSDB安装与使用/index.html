@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -90,21 +90,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Cache," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Cache,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -115,7 +115,7 @@
 <meta name="keywords" content="Cache">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSDB安装与使用">
-<meta property="og:url" content="https://forevert.github.io/2019/05/17/SSDB安装与使用/index.html">
+<meta property="og:url" content="https://ipanda9527.github.io/2019/05/17/SSDB安装与使用/index.html">
 <meta property="og:site_name" content="Panda_9527&#39;s Blog">
 <meta property="og:description" content="SSDB是一个[开源的高性能数据库服务器](https://github.com/ideawu/ssdb), 使用Google LevelDB作为存储引擎, 支持T级别的数据, 同时支持类似Redis中的zset和hash等数据结构, 在同时需求高性能和大数据的条件下, 作为Redis的替代方案.">
 <meta property="og:locale" content="zh-Hans">
@@ -150,7 +150,7 @@
 
 
 
-  <link rel="canonical" href="https://forevert.github.io/2019/05/17/SSDB安装与使用/"/>
+  <link rel="canonical" href="https://ipanda9527.github.io/2019/05/17/SSDB安装与使用/">
 
 
 
@@ -190,7 +190,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Panda_9527's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -220,7 +220,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -230,7 +230,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -240,7 +240,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -275,11 +275,11 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://forevert.github.io/2019/05/17/SSDB安装与使用/">
+    <link itemprop="mainEntityOfPage" href="https://ipanda9527.github.io/2019/05/17/SSDB安装与使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Panda_9527">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -343,7 +343,7 @@
       
 
       
-        <h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="http://ssdb.io/zh_cn/" target="_blank" rel="external">http://ssdb.io/zh_cn/</a></p>
+        <h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="http://ssdb.io/zh_cn/" target="_blank" rel="noopener">http://ssdb.io/zh_cn/</a></p>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
 <li>SSDB支持Redis协议，所以可以直接使用Redis的客户端连接SSDB</li>
 <li>提供数据迁移工具，可以方便的将Redis中数据迁移到SSDB中</li>
@@ -356,14 +356,14 @@
 <li>内存资源比较紧缺，成本低</li>
 <li>数据量非常大的情况，SSDB可以将数据存储到硬盘中，解决Redis容量不够的问题</li>
 </ul>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install ssdb</div></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install ssdb</span><br></pre></td></tr></table></figure>
 <h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>Mac</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 启动</div><div class="line">ssdb-server /usr/local/etc/ssdb.conf </div><div class="line">// 停止</div><div class="line">ssdb-server /usr/local/etc/ssdb.conf -s stop </div><div class="line">// 启动客户端</div><div class="line">ssdb-cli</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 启动</span><br><span class="line">ssdb-server /usr/local/etc/ssdb.conf </span><br><span class="line">// 停止</span><br><span class="line">ssdb-server /usr/local/etc/ssdb.conf -s stop </span><br><span class="line">// 启动客户端</span><br><span class="line">ssdb-cli</span><br></pre></td></tr></table></figure>
 <h4 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h4><p> ssdb的操作指令基本上与redis一致，如果之前使用过redis的话，可以很快就上手ssdb。</p>
-<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ssdb 127.0.0.1:8888&gt; set name avalon</div><div class="line">ok</div><div class="line">(0.002 sec)</div><div class="line">ssdb 127.0.0.1:8888&gt; get name</div><div class="line">avalon</div><div class="line">(0.000 sec)</div></pre></td></tr></table></figure>
-<h4 id="Hashmap"><a href="#Hashmap" class="headerlink" title="Hashmap"></a>Hashmap</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">ssdb 127.0.0.1:8888&gt; hset user name avalon</div><div class="line">ok</div><div class="line">(0.003 sec)</div><div class="line">ssdb 127.0.0.1:8888&gt; hset user age 18</div><div class="line">ok</div><div class="line">(0.000 sec)</div><div class="line">ssdb 127.0.0.1:8888&gt; hget user</div><div class="line">client_error: wrong number of arguments</div><div class="line">(0.000 sec)</div><div class="line">ssdb 127.0.0.1:8888&gt; hget user name</div><div class="line">avalon</div><div class="line">(0.000 sec)</div><div class="line">ssdb 127.0.0.1:8888&gt; hget user age</div><div class="line">18</div><div class="line">(0.000 sec)</div></pre></td></tr></table></figure>
-<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">ssdb 127.0.0.1:8888&gt; qpush_front arr one</div><div class="line">1</div><div class="line">(0.010 sec)</div><div class="line">ssdb 127.0.0.1:8888&gt; qpush_front arr twe</div><div class="line">2</div><div class="line">(0.000 sec)</div><div class="line">ssdb 127.0.0.1:8888&gt; qpush_front arr three</div><div class="line">3</div><div class="line">(0.000 sec)</div><div class="line">// 获取</div><div class="line">ssdb 127.0.0.1:8888&gt; qget arr 1</div><div class="line">twe</div><div class="line">(0.000 sec)</div></pre></td></tr></table></figure>
-<h4 id="其他更多命令"><a href="#其他更多命令" class="headerlink" title="其他更多命令"></a>其他更多命令</h4><p><a href="http://ssdb.io/docs/zh_cn/commands/index.html" target="_blank" rel="external">http://ssdb.io/docs/zh_cn/commands/index.html</a></p>
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ssdb 127.0.0.1:8888&gt; set name avalon</span><br><span class="line">ok</span><br><span class="line">(0.002 sec)</span><br><span class="line">ssdb 127.0.0.1:8888&gt; get name</span><br><span class="line">avalon</span><br><span class="line">(0.000 sec)</span><br></pre></td></tr></table></figure>
+<h4 id="Hashmap"><a href="#Hashmap" class="headerlink" title="Hashmap"></a>Hashmap</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ssdb 127.0.0.1:8888&gt; hset user name avalon</span><br><span class="line">ok</span><br><span class="line">(0.003 sec)</span><br><span class="line">ssdb 127.0.0.1:8888&gt; hset user age 18</span><br><span class="line">ok</span><br><span class="line">(0.000 sec)</span><br><span class="line">ssdb 127.0.0.1:8888&gt; hget user</span><br><span class="line">client_error: wrong number of arguments</span><br><span class="line">(0.000 sec)</span><br><span class="line">ssdb 127.0.0.1:8888&gt; hget user name</span><br><span class="line">avalon</span><br><span class="line">(0.000 sec)</span><br><span class="line">ssdb 127.0.0.1:8888&gt; hget user age</span><br><span class="line">18</span><br><span class="line">(0.000 sec)</span><br></pre></td></tr></table></figure>
+<h4 id="List"><a href="#List" class="headerlink" title="List"></a>List</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ssdb 127.0.0.1:8888&gt; qpush_front arr one</span><br><span class="line">1</span><br><span class="line">(0.010 sec)</span><br><span class="line">ssdb 127.0.0.1:8888&gt; qpush_front arr twe</span><br><span class="line">2</span><br><span class="line">(0.000 sec)</span><br><span class="line">ssdb 127.0.0.1:8888&gt; qpush_front arr three</span><br><span class="line">3</span><br><span class="line">(0.000 sec)</span><br><span class="line">// 获取</span><br><span class="line">ssdb 127.0.0.1:8888&gt; qget arr 1</span><br><span class="line">twe</span><br><span class="line">(0.000 sec)</span><br></pre></td></tr></table></figure>
+<h4 id="其他更多命令"><a href="#其他更多命令" class="headerlink" title="其他更多命令"></a>其他更多命令</h4><p><a href="http://ssdb.io/docs/zh_cn/commands/index.html" target="_blank" rel="noopener">http://ssdb.io/docs/zh_cn/commands/index.html</a></p>
 
       
     </div>
@@ -467,7 +467,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -478,9 +478,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="Panda_9527" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Panda_9527">
           <p class="site-author-name" itemprop="name">Panda_9527</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
@@ -491,7 +489,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -513,7 +511,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -568,10 +566,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

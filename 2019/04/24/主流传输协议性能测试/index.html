@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
@@ -19,8 +19,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -38,7 +38,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -90,21 +90,21 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Java,Protocol," />
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Java,Protocol,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
 
 
 
@@ -115,7 +115,7 @@
 <meta name="keywords" content="Java,Protocol">
 <meta property="og:type" content="article">
 <meta property="og:title" content="主流传输协议性能测试">
-<meta property="og:url" content="https://forevert.github.io/2019/04/24/主流传输协议性能测试/index.html">
+<meta property="og:url" content="https://ipanda9527.github.io/2019/04/24/主流传输协议性能测试/index.html">
 <meta property="og:site_name" content="Panda_9527&#39;s Blog">
 <meta property="og:description" content="文用于介绍几种java序列化框架以及他们的使用及性能">
 <meta property="og:locale" content="zh-Hans">
@@ -150,7 +150,7 @@
 
 
 
-  <link rel="canonical" href="https://forevert.github.io/2019/04/24/主流传输协议性能测试/"/>
+  <link rel="canonical" href="https://ipanda9527.github.io/2019/04/24/主流传输协议性能测试/">
 
 
 
@@ -190,7 +190,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Panda_9527's Blog</span>
         <span class="logo-line-after"><i></i></span>
@@ -220,7 +220,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -230,7 +230,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -240,7 +240,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -275,11 +275,11 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://forevert.github.io/2019/04/24/主流传输协议性能测试/">
+    <link itemprop="mainEntityOfPage" href="https://ipanda9527.github.io/2019/04/24/主流传输协议性能测试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Panda_9527">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
@@ -346,28 +346,28 @@
         <h3 id="FastJson"><a href="#FastJson" class="headerlink" title="FastJson"></a>FastJson</h3><blockquote>
 <p>​    fastjson是阿里巴巴的开源JSON解析库，它可以解析JSON格式的字符串，支持将Java Bean序列化为JSON字符串，也可以从JSON字符串反序列化到JavaBean。作为平时最常用的Json序列化框架，它具备速度快，使用简单等优点</p>
 </blockquote>
-<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FastJsonSerialization</span> <span class="keyword">implements</span> <span class="title">Serialization</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">byte</span>[] serialize(Object data) <span class="keyword">throws</span> IOException &#123;</div><div class="line">        SerializeWriter out = <span class="keyword">new</span> SerializeWriter();</div><div class="line">        JSONSerializer serializer = <span class="keyword">new</span> JSONSerializer(out);</div><div class="line">        serializer.config(SerializerFeature.WriteClassName, <span class="keyword">true</span>);</div><div class="line">        serializer.write(data);</div><div class="line">        <span class="keyword">return</span> out.toBytes(<span class="string">"UTF-8"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">deserialize</span><span class="params">(<span class="keyword">byte</span>[] data, Class&lt;T&gt; clz)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        <span class="keyword">return</span> JSON.parseObject(<span class="keyword">new</span> String(data), clz);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>项目地址:<a href="https://github.com/alibaba/fastjson" target="_blank" rel="external">https://github.com/alibaba/fastjson</a></p>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FastJsonSerialization</span> <span class="keyword">implements</span> <span class="title">Serialization</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">byte</span>[] serialize(Object data) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        SerializeWriter out = <span class="keyword">new</span> SerializeWriter();</span><br><span class="line">        JSONSerializer serializer = <span class="keyword">new</span> JSONSerializer(out);</span><br><span class="line">        serializer.config(SerializerFeature.WriteClassName, <span class="keyword">true</span>);</span><br><span class="line">        serializer.write(data);</span><br><span class="line">        <span class="keyword">return</span> out.toBytes(<span class="string">"UTF-8"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">deserialize</span><span class="params">(<span class="keyword">byte</span>[] data, Class&lt;T&gt; clz)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> JSON.parseObject(<span class="keyword">new</span> String(data), clz);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>项目地址:<a href="https://github.com/alibaba/fastjson" target="_blank" rel="noopener">https://github.com/alibaba/fastjson</a></p>
 <h3 id="Hessian2"><a href="#Hessian2" class="headerlink" title="Hessian2"></a>Hessian2</h3><blockquote>
 <p>Hessian 是 Caucho 开源的一个 RPC 框架，其通讯效率高于 WebService 和 Java 自带的序列化。</p>
 </blockquote>
-<h4 id="使用方式-1"><a href="#使用方式-1" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class Hessian2Serialization implements Serialization &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public byte[] serialize(Object data) throws IOException &#123;</div><div class="line">        ByteArrayOutputStream bos = new ByteArrayOutputStream();</div><div class="line">        Hessian2Output out = new Hessian2Output(bos);</div><div class="line">        out.writeObject(data);</div><div class="line">        out.flush();</div><div class="line">        return bos.toByteArray();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public &lt;T&gt; T deserialize(byte[] bytes, Class&lt;T&gt; clz) throws IOException &#123;</div><div class="line">        Hessian2Input input = new Hessian2Input(new ByteArrayInputStream(bytes));</div><div class="line">        return (T) input.readObject(clz);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>项目地址：<a href="http://hessian.caucho.com/" target="_blank" rel="external">http://hessian.caucho.com/</a></p>
+<h4 id="使用方式-1"><a href="#使用方式-1" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Hessian2Serialization implements Serialization &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public byte[] serialize(Object data) throws IOException &#123;</span><br><span class="line">        ByteArrayOutputStream bos = new ByteArrayOutputStream();</span><br><span class="line">        Hessian2Output out = new Hessian2Output(bos);</span><br><span class="line">        out.writeObject(data);</span><br><span class="line">        out.flush();</span><br><span class="line">        return bos.toByteArray();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public &lt;T&gt; T deserialize(byte[] bytes, Class&lt;T&gt; clz) throws IOException &#123;</span><br><span class="line">        Hessian2Input input = new Hessian2Input(new ByteArrayInputStream(bytes));</span><br><span class="line">        return (T) input.readObject(clz);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>项目地址：<a href="http://hessian.caucho.com/" target="_blank" rel="noopener">http://hessian.caucho.com/</a></p>
 <h3 id="Jackson"><a href="#Jackson" class="headerlink" title="Jackson"></a>Jackson</h3><blockquote>
 <p>​    Jackson是一个简单基于Java应用库，Jackson可以轻松的将Java对象转换成json对象和xml文档，同样也可以将json、xml转换成Java对象。Jackson所依赖的jar包较少，简单易用并且性能也要相对高些，并且Jackson社区相对比较活跃，更新速度也比较快。</p>
 </blockquote>
-<h4 id="使用方式-2"><a href="#使用方式-2" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">private ObjectMapper mapper = new ObjectMapper();</div><div class="line">    @Override</div><div class="line">    public byte[] serialize(Object object) throws IOException &#123;</div><div class="line">        return mapper.writeValueAsBytes(object);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public &lt;T&gt; T deserialize(byte[] bytes, Class&lt;T&gt; clz) throws IOException &#123;</div><div class="line">        return mapper.readValue(bytes, 0, bytes.length, clz);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>项目地址:<a href="https://github.com/FasterXML/jackson" target="_blank" rel="external">https://github.com/FasterXML/jackson</a></p>
+<h4 id="使用方式-2"><a href="#使用方式-2" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">private ObjectMapper mapper = new ObjectMapper();</span><br><span class="line">    @Override</span><br><span class="line">    public byte[] serialize(Object object) throws IOException &#123;</span><br><span class="line">        return mapper.writeValueAsBytes(object);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public &lt;T&gt; T deserialize(byte[] bytes, Class&lt;T&gt; clz) throws IOException &#123;</span><br><span class="line">        return mapper.readValue(bytes, 0, bytes.length, clz);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>项目地址:<a href="https://github.com/FasterXML/jackson" target="_blank" rel="noopener">https://github.com/FasterXML/jackson</a></p>
 <h3 id="MessagePack"><a href="#MessagePack" class="headerlink" title="MessagePack"></a>MessagePack</h3><blockquote>
 <p>It’s like JSON.<br>but fast and small.<br>它的数据格式与json类似，但是在存储时对数字、多字节字符、数组等都做了很多优化，减少了无用的字符，二进制格式，也保证不用字符化带来额外的存储空间</p>
 </blockquote>
-<h4 id="使用方式-3"><a href="#使用方式-3" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">public class MessagePackSerialization implements Serialization &#123;</div><div class="line"></div><div class="line">    private MessagePack pack = new MessagePack();</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public byte[] serialize(Object object) throws IOException &#123;</div><div class="line">        return pack.write(object);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public &lt;T&gt; T deserialize(byte[] bytes, Class&lt;T&gt; clz) throws IOException &#123;</div><div class="line">        Template&lt;List&lt;String&gt;&gt; listTmpl = Templates.tList(Templates.TString);</div><div class="line"></div><div class="line">        return pack.read(bytes, clz);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>项目地址:<a href="https://msgpack.org/" target="_blank" rel="external">https://msgpack.org/</a></p>
+<h4 id="使用方式-3"><a href="#使用方式-3" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class MessagePackSerialization implements Serialization &#123;</span><br><span class="line"></span><br><span class="line">    private MessagePack pack = new MessagePack();</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public byte[] serialize(Object object) throws IOException &#123;</span><br><span class="line">        return pack.write(object);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public &lt;T&gt; T deserialize(byte[] bytes, Class&lt;T&gt; clz) throws IOException &#123;</span><br><span class="line">        Template&lt;List&lt;String&gt;&gt; listTmpl = Templates.tList(Templates.TString);</span><br><span class="line"></span><br><span class="line">        return pack.read(bytes, clz);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>项目地址:<a href="https://msgpack.org/" target="_blank" rel="noopener">https://msgpack.org/</a></p>
 <h3 id="Protostuff"><a href="#Protostuff" class="headerlink" title="Protostuff"></a>Protostuff</h3><blockquote>
 <p>​    基于protobuf的产品，protostuff不需要依赖.proto文件，他可以直接对普通的javabean进行序列化、反序列化的操作，效率上甚至比protobuf还快</p>
 </blockquote>
-<h4 id="使用方式-4"><a href="#使用方式-4" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class ProtostuffSerialization implements Serialization &#123;</div><div class="line"></div><div class="line">    private Objenesis objenesis = new ObjenesisStd();</div><div class="line"></div><div class="line">    // protostuff 无法序列化list对象 需要将list包装成javabean</div><div class="line">    @Override</div><div class="line">    public byte[] serialize(Object obj) throws IOException &#123;</div><div class="line">        Class clz = obj.getClass();</div><div class="line">        LinkedBuffer buffer = LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE);</div><div class="line">        try &#123;</div><div class="line">            Schema schema = RuntimeSchema.createFrom(clz);</div><div class="line">            return ProtostuffIOUtil.toByteArray(obj, schema, buffer);</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            throw e;</div><div class="line">        &#125; finally &#123;</div><div class="line">            buffer.clear();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">		</div><div class="line">    @Override</div><div class="line">    public &lt;T&gt; T deserialize(byte[] bytes, Class&lt;T&gt; clz) throws IOException &#123;</div><div class="line">        T message = objenesis.newInstance(clz);</div><div class="line">        Schema&lt;T&gt; schema = RuntimeSchema.createFrom(clz);</div><div class="line">        ProtostuffIOUtil.mergeFrom(bytes, message, schema);</div><div class="line">        return message;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>项目地址:<a href="https://github.com/protostuff/protostuff" target="_blank" rel="external">https://github.com/protostuff/protostuff</a></p>
+<h4 id="使用方式-4"><a href="#使用方式-4" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public class ProtostuffSerialization implements Serialization &#123;</span><br><span class="line"></span><br><span class="line">    private Objenesis objenesis = new ObjenesisStd();</span><br><span class="line"></span><br><span class="line">    // protostuff 无法序列化list对象 需要将list包装成javabean</span><br><span class="line">    @Override</span><br><span class="line">    public byte[] serialize(Object obj) throws IOException &#123;</span><br><span class="line">        Class clz = obj.getClass();</span><br><span class="line">        LinkedBuffer buffer = LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE);</span><br><span class="line">        try &#123;</span><br><span class="line">            Schema schema = RuntimeSchema.createFrom(clz);</span><br><span class="line">            return ProtostuffIOUtil.toByteArray(obj, schema, buffer);</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            throw e;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            buffer.clear();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">		</span><br><span class="line">    @Override</span><br><span class="line">    public &lt;T&gt; T deserialize(byte[] bytes, Class&lt;T&gt; clz) throws IOException &#123;</span><br><span class="line">        T message = objenesis.newInstance(clz);</span><br><span class="line">        Schema&lt;T&gt; schema = RuntimeSchema.createFrom(clz);</span><br><span class="line">        ProtostuffIOUtil.mergeFrom(bytes, message, schema);</span><br><span class="line">        return message;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>项目地址:<a href="https://github.com/protostuff/protostuff" target="_blank" rel="noopener">https://github.com/protostuff/protostuff</a></p>
 <h3 id="性能比较"><a href="#性能比较" class="headerlink" title="性能比较"></a>性能比较</h3><blockquote>
 <p>测试环境</p>
 <p>内存:8 GB 2133 MHz LPDDR3</p>
@@ -587,7 +587,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -598,9 +598,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.jpg"
-               alt="Panda_9527" />
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Panda_9527">
           <p class="site-author-name" itemprop="name">Panda_9527</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
@@ -611,7 +609,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -633,7 +631,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -688,10 +686,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
